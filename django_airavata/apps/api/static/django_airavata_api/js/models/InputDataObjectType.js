@@ -130,6 +130,18 @@ export default class InputDataObjectType extends BaseModel {
     }
   }
 
+  /**
+   * TODO
+   */
+  get editorDependencies() {
+    const metadata = this._getMetadata();
+    if (metadata && 'editor' in metadata && 'dependencies' in metadata['editor']) {
+      return metadata['editor']['dependencies'];
+    } else {
+      return {};
+    }
+  }
+
   _getMetadata() {
     // metaData could really be anything, here we expect it to be an object
     // so safely check if it is first
@@ -156,5 +168,11 @@ export default class InputDataObjectType extends BaseModel {
       results['value'] = valueErrorMessages;
     }
     return results;
+  }
+
+  evaluateDependencies(inputValues) {
+    if (Object.keys(this.editorDependencies).length > 0) {
+
+    }
   }
 }
