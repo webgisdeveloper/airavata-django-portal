@@ -66,6 +66,9 @@ INSTALLED_APPS = [
 
     # wagtail custom apps
     'django_airavata.wagtailapps.base.apps.BaseConfig',
+
+    #django-sslserver
+    "sslserver",
 ]
 
 MIDDLEWARE = [
